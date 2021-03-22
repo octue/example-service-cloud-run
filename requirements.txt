@@ -1,3 +1,2 @@
 octue @ https://github.com/octue/octue-sdk-python/archive/release/0.1.12.zip
-google.cloud
-google.auth
+google-cloud-secret-manager
