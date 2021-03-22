@@ -33,9 +33,6 @@ COPY . .
 
 EXPOSE $PORT
 
-ARG _TRIGGER_ID
-ARG PROJECT_ID
-
 # Used for any environment setup that has to be done every time
 #  e.g. Fetch any secrets required and (maybe?) fetch configuration files required from the store
 ENTRYPOINT ["/entrypoint"]
@@ -47,4 +44,10 @@ ENTRYPOINT ["/entrypoint"]
 # For environments with multiple CPU cores, increase the number of workers
 # to be equal to the cores available.
 # Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
+ARG _TRIGGER_ID
+ENV SERVICE_ID=$_TRIGGER_ID
+
+ARG PROJECT_ID
+ENV PROJECT_ID=$_PROJECT_ID
+
 CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
