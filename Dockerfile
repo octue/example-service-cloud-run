@@ -1,5 +1,8 @@
 FROM python:slim-buster
 
+# Allow statements and log messages to immediately appear in the Knative logs
+ENV PYTHONUNBUFFERED True
+
 ENV PROJECT_ROOT=/app
 WORKDIR $PROJECT_ROOT
 

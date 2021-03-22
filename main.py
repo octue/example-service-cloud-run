@@ -32,11 +32,11 @@ def index():
     if isinstance(pubsub_message, dict):
         logger.info(pubsub_message)
         logger.info(base64.b64decode(pubsub_message["data"]).decode("utf-8").strip())
-        data = json.loads(base64.b64decode(pubsub_message["data"]).decode("utf-8").strip())
-        logger.info(data)
-        logger.info(type(data))
-        question_uuid = pubsub_message["attributes"]["question_uuid"]
-        run_analysis(data, question_uuid)
+        # data = json.loads(base64.b64decode(pubsub_message["data"]).decode("utf-8").strip())
+        # logger.info(data)
+        # logger.info(type(data))
+        # question_uuid = pubsub_message["attributes"]["question_uuid"]
+        # run_analysis(data, question_uuid)
         return ("", 204)
 
 
