@@ -1,6 +1,7 @@
 import base64
 import json
 import os
+import logging
 
 from octue.resources.communication.google_pub_sub.service import Service
 from octue.resources.communication.service_backends import GCPPubSubBackend
@@ -8,6 +9,7 @@ from octue.runner import Runner
 
 from flask import Flask, request
 
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
@@ -28,14 +30,14 @@ def index():
     pubsub_message = envelope["message"]
 
     if isinstance(pubsub_message, dict):
-        data = base64.b64decode(pubsub_message["data"]).decode("utf-8").strip()
+        logger.info(pubsub_message)
+        logger.info(base64.b64decode(pubsub_message["data"]).decode("utf-8").strip())
+        data = json.loads(base64.b64decode(pubsub_message["data"]).decode("utf-8").strip())
+        logger.info(data)
+        logger.info(type(data))
         question_uuid = pubsub_message["attributes"]["question_uuid"]
         run_analysis(data, question_uuid)
         return ("", 204)
-
-
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
 
 
 def run_analysis(data, question_uuid, deployment_configuration_path=None):
@@ -70,3 +72,7 @@ def run_analysis(data, question_uuid, deployment_configuration_path=None):
     )
 
     service.answer(data=data, question_uuid=question_uuid)
+
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
