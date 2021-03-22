@@ -38,7 +38,7 @@ if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
 
 
-def run_analysis(data, question_uuid, deployment_configuration=None):
+def run_analysis(data, question_uuid, deployment_configuration_path=None):
     """Run an analysis on the given data using the app with the deployment configuration.
 
     :param dict event: Google Cloud event
@@ -47,7 +47,8 @@ def run_analysis(data, question_uuid, deployment_configuration=None):
     """
     print(dict(os.environ))
 
-    deployment_configuration = deployment_configuration or json.loads("deployment_configuration.json")
+    with open(deployment_configuration_path or "deployment_configuration.json") as f:
+        deployment_configuration = json.load(f)
 
     runner = Runner(
         app_src=".",
