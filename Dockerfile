@@ -17,25 +17,9 @@ COPY requirements*.txt ./
 # Upgrade to latest pip and setuptools after the cache bust, then install requirements
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-
-# ENTRYPOINTS AND STARTUP SCRIPTS
-# ===============================
-
-COPY ./scripts/fetch_gcloud_secrets.py /fetch_gcloud_secrets.py
-
-COPY ./scripts/entrypoint /entrypoint
-RUN sed -i 's/\r$//g' /entrypoint
-RUN chmod +x /entrypoint
-
-COPY ./main.py $PROJECT_ROOT/main.py
-
 COPY . .
 
 EXPOSE $PORT
-
-# Used for any environment setup that has to be done every time
-# e.g. Fetch any secrets required and (maybe?) fetch configuration files required from the store
-ENTRYPOINT ["/entrypoint"]
 
 ARG _TRIGGER_ID
 ENV SERVICE_ID=$_TRIGGER_ID
