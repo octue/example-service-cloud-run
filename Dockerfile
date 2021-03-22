@@ -30,6 +30,8 @@ COPY ./scripts/run_analysis.py /run_analysis.py
 RUN sed -i 's/\r$//g' /run_analysis.py
 RUN chmod +x /run_analysis.py
 
+EXPOSE $PORT
+
 # Used for any environment setup that has to be done every time
 #  e.g. Fetch any secrets required and (maybe?) fetch configuration files required from the store
 ENTRYPOINT ["/entrypoint"]
