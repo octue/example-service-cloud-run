@@ -1,21 +1,18 @@
 FROM python:slim-buster
 
-# Set the application root directory
 ENV PROJECT_ROOT=/app
 WORKDIR $PROJECT_ROOT
 
-# Dependencies for building python dependencies.... do we need?
-#RUN apt-get update -y && \
-#    apt-get install -y --fix-missing \
-#    libpq-dev gcc git \
-#    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && \
+    apt-get install -y --fix-missing \
+    libpq-dev gcc git build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-# This will cache bust if any of the requirements files change
+# This will cache bust if any of the requirements change.
 COPY requirements*.txt ./
 
 # Upgrade to latest pip and setuptools after the cache bust, then install requirements
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # If setup.py exists
 #RUN pip install -e .
@@ -24,12 +21,12 @@ RUN pip install --upgrade pip && \
 # ENTRYPOINTS AND STARTUP SCRIPTS
 # ===============================
 
-COPY ./compose/scripts/fetch_gcloud_secrets.py /fetch_gcloud_secrets.py
-COPY ./compose/scripts/entrypoint /entrypoint
+COPY ./scripts/fetch_gcloud_secrets.py /fetch_gcloud_secrets.py
+COPY ./scripts/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
 RUN chmod +x /entrypoint
 
-COPY ./compose/scripts/run-analysis /run-analysis
+COPY ./scripts/run-analysis /run-analysis
 RUN sed -i 's/\r$//g' /run-analysis
 RUN chmod +x /run-analysis
 
