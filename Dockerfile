@@ -35,4 +35,4 @@ RUN chmod +x /run-analysis
 ENTRYPOINT ["/entrypoint"]
 
 # Script run within the entrypoint environment using the context of that environment
-CMD /run-analysis
+CMD python run_analysis.py
