@@ -43,8 +43,7 @@ ENV SERVICE_ID=$_TRIGGER_ID
 ARG PROJECT_ID
 ENV PROJECT_ID=$_PROJECT_ID
 
-ENV OCTUE_PATH=$(python -c "import octue; import os; print(os.path.relpath(octue.__path__[0]))")
-
 # Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 "$OCTUE_PATH/deployment/google/cloud_run:app"
+CMD OCTUE_PATH=$(python -c "import octue; import os; print(os.path.relpath(octue.__path__[0]))") && \
+    exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 "$OCTUE_PATH/deployment/google/cloud_run:app"
 
