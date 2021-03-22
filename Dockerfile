@@ -33,6 +33,9 @@ COPY . .
 
 EXPOSE $PORT
 
+ARG _TRIGGER_ID
+ARG PROJECT_ID
+
 # Used for any environment setup that has to be done every time
 #  e.g. Fetch any secrets required and (maybe?) fetch configuration files required from the store
 ENTRYPOINT ["/entrypoint"]
