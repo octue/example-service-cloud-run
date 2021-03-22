@@ -7,7 +7,38 @@ from octue.resources.communication.service_backends import GCPPubSubBackend
 from octue.runner import Runner
 
 
-def run_analysis(event, context, deployment_configuration=None):
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route("/", methods=["POST"])
+def index():
+    envelope = request.get_json()
+    if not envelope:
+        msg = "no Pub/Sub message received"
+        print(f"error: {msg}")
+        return f"Bad Request: {msg}", 400
+
+    if not isinstance(envelope, dict) or "message" not in envelope:
+        msg = "invalid Pub/Sub message format"
+        print(f"error: {msg}")
+        return f"Bad Request: {msg}", 400
+
+    pubsub_message = envelope["message"]
+
+    if isinstance(pubsub_message, dict) and "data" in pubsub_message:
+        data = base64.b64decode(pubsub_message["data"]).decode("utf-8").strip()
+        question_uuid = pubsub_message["attributes"]["question_uuid"]
+        run_analysis(data, question_uuid)
+        return ("", 204)
+
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+
+
+def run_analysis(data, question_uuid, deployment_configuration=None):
     """Run an analysis on the given data using the app with the deployment configuration.
 
     :param dict event: Google Cloud event
@@ -35,5 +66,4 @@ def run_analysis(event, context, deployment_configuration=None):
         run_function=runner.run,
     )
 
-    data = json.loads(base64.b64decode(event["data"]).decode("utf-8"))
-    service.answer(data=data, question_uuid=event["attributes"]["question_uuid"])
+    service.answer(data=data, question_uuid=question_uuid)

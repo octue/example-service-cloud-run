@@ -1,2 +1,4 @@
 octue @ https://github.com/octue/octue-sdk-python/archive/feature/add-service-deployment.zip
 google-cloud-secret-manager
+Flask
+gunicorn
