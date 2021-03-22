@@ -44,4 +44,4 @@ ARG PROJECT_ID
 ENV PROJECT_ID=$_PROJECT_ID
 
 # Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 "$OCTUE_PATH/deployment/google/cloud_run:app"
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 octue.deployment.google.cloud_run:app

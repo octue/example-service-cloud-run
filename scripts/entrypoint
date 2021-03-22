@@ -27,7 +27,5 @@ function export_envs() {
 }
 export_envs
 
-export OCTUE_PATH=$(python -c "import octue; import os; print(os.path.relpath(octue.__path__[0]))")
-
 # Execute the provided run CMD
 exec "$@"
