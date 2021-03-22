@@ -17,9 +17,6 @@ COPY requirements*.txt ./
 # Upgrade to latest pip and setuptools after the cache bust, then install requirements
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# If setup.py exists
-#RUN pip install -e .
-
 
 # ENTRYPOINTS AND STARTUP SCRIPTS
 # ===============================
@@ -37,20 +34,17 @@ COPY . .
 EXPOSE $PORT
 
 # Used for any environment setup that has to be done every time
-#  e.g. Fetch any secrets required and (maybe?) fetch configuration files required from the store
+# e.g. Fetch any secrets required and (maybe?) fetch configuration files required from the store
 ENTRYPOINT ["/entrypoint"]
 
-# Script run within the entrypoint environment using the context of that environment
-
-# Run the web service on container startup. Here we use the gunicorn
-# webserver, with one worker process and 8 threads.
-# For environments with multiple CPU cores, increase the number of workers
-# to be equal to the cores available.
-# Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
 ARG _TRIGGER_ID
 ENV SERVICE_ID=$_TRIGGER_ID
 
 ARG PROJECT_ID
 ENV PROJECT_ID=$_PROJECT_ID
 
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
+ENV OCTUE_PATH=$(python -c "import octue; import os; print(os.path.relpath(octue.__path__[0]))")
+
+# Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 "$OCTUE_PATH/deployment/google/cloud_run:app"
+
