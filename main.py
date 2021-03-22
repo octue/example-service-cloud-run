@@ -19,26 +19,25 @@ app = Flask(__name__)
 @app.route("/", methods=["POST"])
 def index():
     envelope = request.get_json()
+
     if not envelope:
         message = "No Pub/Sub message received."
-        print(f"Error: {message}")
+        logger.error(message)
         return f"Bad Request: {message}", 400
 
     if not isinstance(envelope, dict) or "message" not in envelope:
         message = "Invalid Pub/Sub message format."
-        print(f"error: {message}")
+        logger.error(message)
         return f"Bad Request: {message}", 400
 
     pubsub_message = envelope["message"]
+    data = json.loads(base64.b64decode(pubsub_message["data"]).decode("utf-8").strip())
+    question_uuid = pubsub_message["attributes"]["question_uuid"]
+    logger.info("Received question %r.", question_uuid)
 
-    if isinstance(pubsub_message, dict):
-        logger.info(pubsub_message)
-        data = json.loads(base64.b64decode(pubsub_message["data"]).decode("utf-8").strip())
-        logger.info(data)
-        logger.info(type(data))
-        question_uuid = pubsub_message["attributes"]["question_uuid"]
-        run_analysis(data, question_uuid)
-        return ("", 204)
+    run_analysis(data, question_uuid)
+    logger.info("Analysis run and response sent for question %r.", question_uuid)
+    return ("", 204)
 
 
 def run_analysis(data, question_uuid, deployment_configuration_path=None):
@@ -48,8 +47,6 @@ def run_analysis(data, question_uuid, deployment_configuration_path=None):
     :param google.cloud.functions.Context context: metadata for the event
     :return None:
     """
-    print(dict(os.environ))
-
     with open(deployment_configuration_path or "deployment_configuration.json") as f:
         deployment_configuration = json.load(f)
 
@@ -73,7 +70,3 @@ def run_analysis(data, question_uuid, deployment_configuration_path=None):
     )
 
     service.answer(data=data, question_uuid=question_uuid)
-
-
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
