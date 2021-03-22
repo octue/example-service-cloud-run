@@ -22,13 +22,10 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # ===============================
 
 COPY ./scripts/fetch_gcloud_secrets.py /fetch_gcloud_secrets.py
+
 COPY ./scripts/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
 RUN chmod +x /entrypoint
-
-#COPY ./scripts/main.py /main.py
-#RUN sed -i 's/\r$//g' /main.py
-#RUN chmod +x /main.py
 
 COPY ./main.py $PROJECT_ROOT/main.py
 
