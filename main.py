@@ -65,7 +65,7 @@ def run_analysis(data, question_uuid, deployment_configuration_path=None):
 
     service = Service(
         id=os.environ["SERVICE_ID"],
-        backend=GCPPubSubBackend(project_name=os.environ["PROJECT_ID"]),
+        backend=GCPPubSubBackend(project_name=os.environ["PROJECT_ID"], credentials_environment_variable=None),
         run_function=runner.run,
     )
 
