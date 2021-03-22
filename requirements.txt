@@ -1,2 +1,2 @@
-octue @ https://github.com/octue/octue-sdk-python/archive/release/0.1.12.zip
+octue @ https://github.com/octue/octue-sdk-python/archive/feature/add-service-deployment.zip
 google-cloud-secret-manager
