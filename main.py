@@ -6,10 +6,12 @@ import logging
 from octue.resources.communication.google_pub_sub.service import Service
 from octue.resources.communication.service_backends import GCPPubSubBackend
 from octue.runner import Runner
+from octue.logging_handlers import apply_log_handler
 
 from flask import Flask, request
 
 logger = logging.getLogger(__name__)
+apply_log_handler(logger, log_level=logging.INFO)
 
 app = Flask(__name__)
 
