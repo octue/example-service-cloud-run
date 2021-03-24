@@ -7,5 +7,13 @@
                 "type": "integer"
             }
         }
-    }
+    },
+    "output_values_schema": {
+		"title": "Output values",
+		"description": "The elevations at the input longitudes and latitudes.",
+		"type": "array",
+		"items": {
+			"type": "number"
+		}
+	}
 }

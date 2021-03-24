@@ -1,2 +1,2 @@
 def run(analysis):
-    print("Miaow, miaow, miaow.")
+    analysis.output_values = [1, 2, 3, 4, 5]
