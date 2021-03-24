@@ -21,7 +21,7 @@ EXPOSE $PORT
 ARG _TRIGGER_ID
 ENV SERVICE_ID=$_TRIGGER_ID
 
-ARG PROJECT_ID
+ARG _PROJECT_ID
 ENV PROJECT_ID=$_PROJECT_ID
 
 # Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
