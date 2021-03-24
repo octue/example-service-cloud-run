@@ -1,6 +1,6 @@
 FROM python:slim-buster
 
-# Allow statements and log messages to immediately appear in the Knative logs
+# Allow statements and log messages to immediately appear in the Knative logs on Google Cloud.
 ENV PYTHONUNBUFFERED True
 
 ENV PROJECT_ROOT=/app
@@ -20,9 +20,6 @@ EXPOSE $PORT
 
 ARG _TRIGGER_ID
 ENV SERVICE_ID=$_TRIGGER_ID
-
-ARG _PROJECT_ID
-ENV PROJECT_ID=$_PROJECT_ID
 
 # Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
 CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 octue.deployment.google.cloud_run:app
