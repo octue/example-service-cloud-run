@@ -1,1 +1,1 @@
-octue @ https://github.com/octue/octue-sdk-python/archive/feature/return-error-messages-from-answerer-to-asker.zip
+octue==0.1.27
