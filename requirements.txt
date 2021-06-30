@@ -1,1 +1,1 @@
-octue==0.2.3
+octue @ https://github.com/octue/octue-sdk-python/archive/feature/stream-remote-service-logs-to-asker-via-pub-sub.zip
