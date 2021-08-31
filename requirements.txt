@@ -1,1 +1,1 @@
-octue @ https://github.com/octue/octue-sdk-python/archive/enhancement/forward-all-errors-in-cloud-run-answer-question.zip
+octue @ https://github.com/octue/octue-sdk-python/archive/fix/format-service-error-messages-correctly.zip
