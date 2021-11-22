@@ -1,1 +1,1 @@
-octue @ https://github.com/octue/octue-sdk-python/archive/fix/acknowledge-pub-sub-immediately-in-cloud-run.zip
+octue==0.5.0
