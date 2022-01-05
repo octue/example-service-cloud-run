@@ -1,0 +1,14 @@
+name: example-service-for-cloud-run
+project_name: octue-amy
+region: europe-west1
+repository_owner: octue
+repository_name: example-service-cloud-run
+minimum_instances: 0
+maximum_instances: 10
+concurrency: 10
+branch_pattern: ^main$
+memory: 128Mi
+cpus: 1
+environment_variables:
+  - name: LOREM
+    value: ipsum
