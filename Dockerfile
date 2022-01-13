@@ -13,6 +13,6 @@ COPY . .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 ENV USE_OCTUE_LOG_HANDLER=1
-ENV COMPUTE_PROVIDER=GOOGLE_CLOUD_RUN
+ENV COMPUTE_PROVIDER=GOOGLE_DATAFLOW
 
 ENV SERVICE_ID=octue.services.1df81225-7e87-4b1c-9413-cdc375a127a7
