@@ -1,6 +1,6 @@
 name: example-service-for-cloud-run
 project_name: octue-amy
-region: europe-west1
+region: europe-west2
 repository_owner: octue
 repository_name: example-service-cloud-run
 minimum_instances: 0
