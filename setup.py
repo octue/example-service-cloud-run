@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="example-service",
-    version="0.1.0",
+    version="0.1.1",
     install_requires=[
         "octue==0.9.1",
     ],
