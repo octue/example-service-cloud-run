@@ -1,1 +1,1 @@
-octue @ https://github.com/octue/octue-sdk-python/archive/enhancement/use-root-logger-for-analysis-logging.zip
+octue==0.9.1
