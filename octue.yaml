@@ -1,8 +1,9 @@
-name: example-service-for-cloud-run
+name: example-service-for-dataflow
 project_name: octue-amy
 region: europe-west2
 repository_owner: octue
 repository_name: example-service-cloud-run
+dockerfile_path: Dockerfile
 minimum_instances: 0
 maximum_instances: 10
 concurrency: 10
