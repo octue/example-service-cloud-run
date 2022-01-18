@@ -1,1 +1,1 @@
-octue @ https://github.com/octue/octue-sdk-python/archive/feature/add-automated-cloud-run-deployment.zip
+octue==0.9.1
