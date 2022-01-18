@@ -1,1 +1,1 @@
-octue @ https://github.com/octue/octue-sdk-python/archive/feature/add-dataflow-service-deployments.zip
+octue==0.9.1
