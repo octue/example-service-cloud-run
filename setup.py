@@ -4,7 +4,7 @@ setup(
     name="example-service",
     version="0.1.2",
     install_requires=[
-        "octue @ https://github.com/octue/octue-sdk-python/archive/enhancement/use-latest-apache-beam-version.zip",
+        "octue==0.10.2",
     ],
     url="https://www.github.com/octue/example-service-cloud-run",
     author="cortadocodes",
