@@ -2,13 +2,9 @@ import os
 import unittest
 
 from octue import Runner
-from octue.log_handlers import apply_log_handler
 
 REPOSITORY_ROOT = os.path.dirname(os.path.dirname(__file__))
 TWINE_PATH = os.path.join(REPOSITORY_ROOT, "twine.json")
-
-
-apply_log_handler()
 
 
 class TestApp(unittest.TestCase):

@@ -22,4 +22,5 @@ def run(analysis):
 
         analysis.output_manifest.datasets["example_dataset"] = Dataset(files=[datafile])
         analysis.finalise(upload_output_datasets_to="gs://octue-test-bucket/example_output_datasets")
-        logger.info("Finished example analysis.")
+
+    logger.info("Finished example analysis.")
