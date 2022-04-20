@@ -1,4 +1,5 @@
 import logging
+import os
 import tempfile
 import time
 
@@ -16,11 +17,12 @@ def run(analysis):
     time.sleep(5)
     analysis.output_values = [1, 2, 3, 4, 5]
 
-    with tempfile.NamedTemporaryFile() as temporary_file:
-        with Datafile(temporary_file.name, mode="w") as (datafile, f):
+    with tempfile.TemporaryDirectory() as temporary_directory:
+
+        with Datafile(os.path.join(temporary_directory, "output.dat"), mode="w") as (datafile, f):
             f.write("This is some example service output.")
 
-        analysis.output_manifest.datasets["example_dataset"] = Dataset(files=[datafile])
+        analysis.output_manifest.datasets["example_dataset"] = Dataset(path=temporary_directory, files={datafile})
         analysis.finalise(upload_output_datasets_to="gs://octue-test-bucket/example_output_datasets")
 
     logger.info("Finished example analysis.")
