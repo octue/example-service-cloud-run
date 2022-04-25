@@ -29,7 +29,6 @@ class TestApp(unittest.TestCase):
             # Check the output values.
             self.assertEqual(analysis.output_values, [1, 2, 3, 4, 5])
 
-
         # Test that the signed URLs for the dataset and its files work and can be used to reinstantiate the output
         # manifest after serialisation.
         downloaded_output_manifest = Manifest.deserialise(analysis.output_manifest.to_primitive())
