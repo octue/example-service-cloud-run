@@ -23,11 +23,12 @@ class TestApp(unittest.TestCase):
         """
         runner = Runner(app_src=REPOSITORY_ROOT, twine=TWINE_PATH)
 
-        with patch("google.cloud.storage.blob.Blob.generate_signed_url", mock_generate_signed_url):
-            analysis = runner.run(input_values={"n_iterations": 3})
+        with patch("octue.resources.dataset.Dataset._save_local_metadata"):
+            with patch("google.cloud.storage.blob.Blob.generate_signed_url", mock_generate_signed_url):
+                analysis = runner.run(input_values={"n_iterations": 3})
 
-            # Check the output values.
-            self.assertEqual(analysis.output_values, [1, 2, 3, 4, 5])
+        # Check the output values.
+        self.assertEqual(analysis.output_values, [1, 2, 3, 4, 5])
 
         # Test that the signed URLs for the dataset and its files work and can be used to reinstantiate the output
         # manifest after serialisation.
