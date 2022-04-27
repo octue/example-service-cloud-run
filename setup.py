@@ -2,9 +2,9 @@ from setuptools import setup
 
 setup(
     name="example-service",
-    version="0.1.6",
+    version="0.1.7",
     install_requires=[
-        "octue==0.15.7",
+        "octue==0.21.0",
     ],
     url="https://www.github.com/octue/example-service-cloud-run",
     author="cortadocodes",

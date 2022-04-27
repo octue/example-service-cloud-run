@@ -15,5 +15,10 @@
 		"items": {
 			"type": "number"
 		}
-	}
+	},
+    "output_manifest": {
+        "datasets": {
+            "example_dataset": {}
+        }
+    }
 }
