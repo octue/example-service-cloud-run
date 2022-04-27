@@ -41,6 +41,9 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
 
+      - name: Install tox
+        run: pip install tox
+
       - name: Authenticate with Google Cloud
         id: auth
         uses: google-github-actions/auth@v0.6.0
@@ -53,6 +56,4 @@ jobs:
       - name: Run tests
         env:
           GOOGLE_CLOUD_PROJECT: ${{ secrets.TEST_PROJECT_NAME }}
-        run: |
-          pip3 install -r requirements-dev.txt
-          python3 -m unittest
+        run: tox -vv -e py
