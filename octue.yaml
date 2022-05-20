@@ -1,5 +1,6 @@
 services:
   - name: example-service-dataflow
+    organisation: octue
     project_name: octue-amy
     region: europe-west2
     repository_owner: octue
