@@ -23,6 +23,6 @@ def run(analysis):
             f.write("This is some example service output.")
 
         analysis.output_manifest.datasets["example_dataset"] = Dataset(path=temporary_directory, files={datafile})
-        analysis.finalise(upload_output_datasets_to="gs://octue-test-bucket/example_output_datasets")
+        analysis.finalise(upload_output_datasets_to=analysis.output_location)
 
     logger.info("Finished example analysis.")

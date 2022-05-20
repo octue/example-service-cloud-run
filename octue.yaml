@@ -14,3 +14,4 @@ services:
     environment_variables:
       - name: LOREM
         value: ipsum
+    app_configuration_path: app_configuration.json
