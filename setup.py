@@ -9,5 +9,5 @@ setup(
     url="https://www.github.com/octue/example-service-cloud-run",
     author="cortadocodes",
     author_email="cortado.codes@protonmail.com",
-    description="An example Octue service for deploying to Google Cloud Run or Google Dataflow",
+    description="An example Octue service for deploying to Google Cloud Run.",
 )
