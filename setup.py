@@ -4,7 +4,7 @@ setup(
     name="example-service",
     version="0.1.8",
     install_requires=[
-        "octue @ https://github.com/octue/octue-sdk-python/archive/enhancement/make-deployer-use-name-based-service-ids.zip",
+        "octue==0.26.1",
     ],
     url="https://www.github.com/octue/example-service-cloud-run",
     author="cortadocodes",
