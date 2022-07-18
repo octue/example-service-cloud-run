@@ -1,5 +1,5 @@
 services:
-  - name: example-service-cloud-run
+  - name: example-service-dataflow
     organisation: octue
     project_name: octue-amy
     region: europe-west2
@@ -8,7 +8,7 @@ services:
     minimum_instances: 0
     maximum_instances: 10
     concurrency: 10
-    branch_pattern: ^main$
+    branch_pattern: ^deploy-to-dataflow$
     memory: 128Mi
     cpus: 1
     environment_variables:
