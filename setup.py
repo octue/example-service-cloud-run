@@ -4,7 +4,7 @@ setup(
     name="example-service",
     version="0.1.8",
     install_requires=[
-        "octue==0.26.1",
+        "octue==0.29.8",
     ],
     url="https://www.github.com/octue/example-service-cloud-run",
     author="cortadocodes",
