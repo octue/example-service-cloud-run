@@ -4,7 +4,7 @@ setup(
     name="example-service",
     version="0.1.9",
     install_requires=[
-        "octue@https://github.com/octue/octue-sdk-python/archive/dependencies/fix-dependency-resolution-problems.zip",
+        "octue==0.29.8",
     ],
     url="https://www.github.com/octue/example-service-cloud-run",
     author="cortadocodes",
