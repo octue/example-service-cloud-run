@@ -13,9 +13,8 @@ logger = logging.getLogger(__name__)
 
 def run(analysis):
     logger.info("Started example analysis.")
-    time.sleep(150)
     do_something()
-    time.sleep(150)
+    time.sleep(2)
     analysis.output_values = [1, 2, 3, 4, 5]
 
     with tempfile.TemporaryDirectory() as temporary_directory:
