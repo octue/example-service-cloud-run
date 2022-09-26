@@ -4,7 +4,7 @@ setup(
     name="example-service",
     version="0.1.9",
     install_requires=[
-        "octue @ https://github.com/octue/octue-sdk-python/archive/fix/ensure-services-have-unique-ids.zip",
+        "octue==0.38.0",
     ],
     url="https://www.github.com/octue/example-service-cloud-run",
     author="cortadocodes",
