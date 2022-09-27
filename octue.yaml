@@ -9,7 +9,7 @@ services:
     maximum_instances: 10
     concurrency: 10
     branch_pattern: ^main$
-    memory: 128Mi
+    memory: 512Mi
     cpus: 1
     environment_variables:
       - name: LOREM

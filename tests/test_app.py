@@ -3,7 +3,7 @@ import unittest
 from unittest.mock import patch
 
 from octue import Runner
-from octue.cloud.emulators import GoogleCloudStorageEmulatorTestResultModifier, mock_generate_signed_url
+from octue.cloud.emulators.cloud_storage import GoogleCloudStorageEmulatorTestResultModifier, mock_generate_signed_url
 from octue.resources import Manifest
 
 
