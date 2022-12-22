@@ -14,8 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
     - name: Get package version
       run: echo "PACKAGE_VERSION=$(python setup.py --version)" >> $GITHUB_ENV
+
     - name: Create Release
       uses: actions/create-release@v1
       env:
