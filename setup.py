@@ -1,5 +1,6 @@
 from setuptools import setup
 
+
 setup(
     name="example-service",
     version="0.2.0",

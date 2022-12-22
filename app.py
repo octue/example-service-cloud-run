@@ -3,9 +3,8 @@ import os
 import tempfile
 import time
 
-from octue.resources import Datafile, Dataset
-
 from example_package.submodule import do_something
+from octue.resources import Datafile, Dataset
 
 
 logger = logging.getLogger(__name__)
