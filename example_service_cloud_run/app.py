@@ -3,8 +3,9 @@ import os
 import tempfile
 import time
 
-from example_service_cloud_run.submodule import do_something
 from octue.resources import Datafile, Dataset
+
+from example_service_cloud_run.submodule import do_something
 
 
 logger = logging.getLogger(__name__)
