@@ -3,7 +3,7 @@ import os
 import tempfile
 import time
 
-from example_package.submodule import do_something
+from example_service_cloud_run.submodule import do_something
 from octue.resources import Datafile, Dataset
 
 
