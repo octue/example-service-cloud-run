@@ -4,7 +4,7 @@ setup(
     name="example-service",
     version="0.2.0",
     install_requires=[
-        "octue @ https://github.com/octue/octue-sdk-python/archive/devops/improve-deployment-dockerfile.zip",
+        "octue==0.43.2",
     ],
     url="https://www.github.com/octue/example-service-cloud-run",
     author="Marcus Lugg",
