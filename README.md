@@ -1,2 +1,2 @@
 # example-service-cloud-run
-Trying to get cloud run to deploy a template service
+An example Octue service for deploying to Google Cloud Run. Questions can be sent to it at `octue/example-service-cloud-run:latest`.
