@@ -1,6 +1,7 @@
 services:
-  - name: example-service-cloud-run
-    organisation: octue
+  - namespace: octue
+    name: example-service-cloud-run
+    app_source_path: example_service_cloud_run
     project_name: octue-amy
     region: europe-west2
     repository_owner: octue

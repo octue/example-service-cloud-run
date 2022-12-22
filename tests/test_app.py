@@ -21,7 +21,10 @@ class TestApp(unittest.TestCase):
         """Test that the app takes in input in the correct format and returns an analysis with the correct output
         values.
         """
-        runner = Runner(app_src=REPOSITORY_ROOT, twine=TWINE_PATH)
+        runner = Runner(
+            app_src=os.path.join(REPOSITORY_ROOT, "example_service_cloud_run"),
+            twine=TWINE_PATH,
+        )
 
         with patch("google.cloud.storage.blob.Blob.generate_signed_url", mock_generate_signed_url):
             analysis = runner.run(input_values={"n_iterations": 3})

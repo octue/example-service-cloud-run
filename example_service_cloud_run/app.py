@@ -5,7 +5,7 @@ import time
 
 from octue.resources import Datafile, Dataset
 
-from example_package.submodule import do_something
+from example_service_cloud_run.submodule import do_something
 
 
 logger = logging.getLogger(__name__)

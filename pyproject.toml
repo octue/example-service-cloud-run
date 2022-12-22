@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "example-service-cloud-run"
+version = "0.2.0"
+description = "An example Octue service for deploying to Google Cloud Run."
+authors = ["Marcus Lugg <marcus@octue.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "example_service_cloud_run"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+octue = "0.43.2"
+
+[tool.poetry.group.dev.dependencies]
+gcp-storage-emulator = "2022.4.13"
+pre-commit = "^2.20.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
