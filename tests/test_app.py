@@ -27,7 +27,12 @@ class TestApp(unittest.TestCase):
         )
 
         with patch("google.cloud.storage.blob.Blob.generate_signed_url", mock_generate_signed_url):
-            analysis = runner.run(input_values={"n_iterations": 3})
+            with self.assertLogs() as logging_context:
+                analysis = runner.run(input_values={"n_iterations": 3})
+
+        # Check log messages from app and submodules are emitted.
+        self.assertEqual(logging_context.records[0].name, "app")
+        self.assertEqual(logging_context.records[1].name, "example_service_cloud_run.submodule")
 
         # Check the output values.
         self.assertEqual(analysis.output_values, [1, 2, 3, 4, 5])
