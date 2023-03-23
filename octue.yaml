@@ -3,7 +3,7 @@ services:
     name: example-service-cloud-run
     app_source_path: example_service_cloud_run
     project_name: octue-sdk-python
-    region: europe-west2
+    region: europe-west1
     repository_owner: octue
     repository_name: example-service-cloud-run
     minimum_instances: 0
