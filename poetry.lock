@@ -810,8 +810,8 @@ hdf5 = ["h5py (>=3.6,<4.0)"]
 [package.source]
 type = "git"
 url = "https://github.com/octue/octue-sdk-python"
-reference = "publish-answers-to-question-topic"
-resolved_reference = "cd77b1e6f3ed0d37ab8783c83bc01e9e246773d8"
+reference = "publish-answers-to-question-topic-2"
+resolved_reference = "b9559d93a44127cb413efe9e0de02f5e928db01c"
 
 [[package]]
 name = "packaging"
@@ -1193,4 +1193,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "0d2cbd8e03d0160f381736e58e83bd8975b86163e6bb2cb49b597c0f9d40e898"
+content-hash = "4548f92e40444d6ced734b759b07bf7535b8be572a0c883b02bbe9dc8bd783fb"
