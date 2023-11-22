@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "example-service-cloud-run"
-version = "0.3.1"
+version = "0.3.2"
 description = "An example Octue service for deploying to Google Cloud Run."
 authors = ["Marcus Lugg <marcus@octue.com>"]
 license = "MIT"
