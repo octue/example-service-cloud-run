@@ -34,11 +34,12 @@ jobs:
       gcp_resource_affix: ${{ steps.get-deployment-info.outputs.gcp_resource_affix}}
       gcp_service_name: ${{ steps.get-deployment-info.outputs.gcp_service_name}}
       version: ${{ steps.get-deployment-info.outputs.version }}
+      revision_tag: ${{ steps.get-deployment-info.outputs.revision_tag }}
       revision_tag_slug: ${{ steps.get-deployment-info.outputs.revision_tag_slug }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install poetry
         uses: snok/install-poetry@v1
@@ -63,7 +64,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -109,7 +110,7 @@ jobs:
 
       - name: Deploy to Cloud Run service
         id: deploy-service
-        uses: google-github-actions/deploy-cloudrun@v0
+        uses: google-github-actions/deploy-cloudrun@v2
         with:
           env_vars: |
             OCTUE_SERVICE_NAMESPACE=${{ needs.info.outputs.gcp_resource_affix }}
