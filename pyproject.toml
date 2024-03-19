@@ -9,7 +9,7 @@ packages = [{include = "example_service_cloud_run"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-octue = { "git" = "https://github.com/octue/octue-sdk-python",  "rev" = "better-support-asynchronous-questions" }
+octue = { "git" = "https://github.com/octue/octue-sdk-python", "rev" = "better-support-asynchronous-questions" }
 
 [tool.poetry.group.dev.dependencies]
 gcp-storage-emulator = "2022.4.13"
