@@ -127,7 +127,7 @@ jobs:
         run: echo "${{ steps.deploy-service.outputs.url }}"
 
       - name: Create service topic and push subscription
-        uses: octue/create-push-subscription@0.4.0.beta-0
+        uses: octue/create-push-subscription@0.4.0.beta-1
         with:
           project_name: ${{ needs.info.outputs.gcp_project_name }}
           service_namespace: ${{ needs.info.outputs.gcp_resource_affix }}
@@ -136,7 +136,7 @@ jobs:
           push_endpoint: ${{ steps.deploy-service.outputs.url }}
 
       - name: Create event handler cloud function push subscription
-        uses: octue/create-push-subscription@0.4.0.beta-0
+        uses: octue/create-push-subscription@0.4.0.beta-1
         with:
           project_name: ${{ needs.info.outputs.gcp_project_name }}
           service_namespace: ${{ needs.info.outputs.gcp_resource_affix }}
@@ -144,3 +144,4 @@ jobs:
           service_revision_tag: ${{ needs.info.outputs.revision_tag }}
           push_endpoint: https://europe-west1-octue-sdk-python.cloudfunctions.net/event-handler
           filter: "" # Avoid default filter
+          subscription_suffix: -event-handler
