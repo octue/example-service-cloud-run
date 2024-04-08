@@ -941,7 +941,7 @@ hdf5 = ["h5py (>=3.6,<4.0)"]
 type = "git"
 url = "https://github.com/octue/octue-sdk-python"
 reference = "use-single-topic-per-workspace"
-resolved_reference = "1140979664c8985e7d066aaf22e8b98b779f9c6d"
+resolved_reference = "7472cd9c72c3f60c85b5edcad8d3ecd3ef086bff"
 
 [[package]]
 name = "packaging"
