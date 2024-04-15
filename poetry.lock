@@ -913,35 +913,31 @@ name = "octue"
 version = "0.53.0"
 description = "A package providing template applications for data services, and a python SDK to the Octue API."
 optional = false
-python-versions = "^3.7.1"
-files = []
-develop = false
+python-versions = "<4.0.0,>=3.7.1"
+files = [
+    {file = "octue-0.53.0-py3-none-any.whl", hash = "sha256:5b1c775814e98e93df852fda8606377c033d59bf435dea89f7fac5ced8344bea"},
+    {file = "octue-0.53.0.tar.gz", hash = "sha256:b72e71c30c68748d5c8a1fb7d84cfedef8191d668fa209ab8566852b907f585a"},
+]
 
 [package.dependencies]
 click = ">=7,<9"
-coolname = "^2"
-db-dtypes = "^1.2.0"
-Flask = "^2"
+coolname = ">=2,<3"
+db-dtypes = ">=1.2.0,<2.0.0"
+Flask = ">=2,<3"
 google-auth = ">=1.27.0,<3"
-google-cloud-bigquery = "^3.18.0"
-google-cloud-pubsub = "^2.5"
-google-cloud-secret-manager = "^2.3"
-google-cloud-storage = ">=1.35.1, <3"
-google-crc32c = "^1.1"
-gunicorn = "^20.1"
+google-cloud-bigquery = ">=3.18.0,<4.0.0"
+google-cloud-pubsub = ">=2.5,<3.0"
+google-cloud-secret-manager = ">=2.3,<3.0"
+google-cloud-storage = ">=1.35.1,<3"
+google-crc32c = ">=1.1,<2.0"
+gunicorn = ">=20.1,<21.0"
 packaging = ">=20.4"
-python-dateutil = "^2.8"
-pyyaml = "^6"
-twined = "^0.5.1"
+python-dateutil = ">=2.8,<3.0"
+pyyaml = ">=6,<7"
+twined = ">=0.5.1,<0.6.0"
 
 [package.extras]
 hdf5 = ["h5py (>=3.6,<4.0)"]
-
-[package.source]
-type = "git"
-url = "https://github.com/octue/octue-sdk-python"
-reference = "better-support-asynchronous-questions"
-resolved_reference = "f1992cad35d7194796c9a212d982928de00269f7"
 
 [[package]]
 name = "packaging"
@@ -1343,18 +1339,18 @@ pyasn1 = ">=0.1.3"
 
 [[package]]
 name = "setuptools"
-version = "69.2.0"
+version = "69.5.1"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "setuptools-69.2.0-py3-none-any.whl", hash = "sha256:c21c49fb1042386df081cb5d86759792ab89efca84cf114889191cd09aacc80c"},
-    {file = "setuptools-69.2.0.tar.gz", hash = "sha256:0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"},
+    {file = "setuptools-69.5.1-py3-none-any.whl", hash = "sha256:c636ac361bc47580504644275c9ad802c50415c7522212252c033bd15f301f32"},
+    {file = "setuptools-69.5.1.tar.gz", hash = "sha256:6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"},
 ]
 
 [package.extras]
-docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (<7.2.5)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
-testing = ["build[virtualenv]", "filelock (>=3.4.0)", "importlib-metadata", "ini2toml[lite] (>=0.9)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "mypy (==1.9)", "packaging (>=23.2)", "pip (>=19.1)", "pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-ruff (>=0.2.1)", "pytest-timeout", "pytest-xdist (>=3)", "tomli", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
+docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
+testing = ["build[virtualenv]", "filelock (>=3.4.0)", "importlib-metadata", "ini2toml[lite] (>=0.9)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "mypy (==1.9)", "packaging (>=23.2)", "pip (>=19.1)", "pytest (>=6,!=8.1.1)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy", "pytest-perf", "pytest-ruff (>=0.2.1)", "pytest-timeout", "pytest-xdist (>=3)", "tomli", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
 testing-integration = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "packaging (>=23.2)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
@@ -1466,4 +1462,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "3d13ad0b46b6abd1106626ae8e280c506c74776fc1af9b4917edf2de4d3fe793"
+content-hash = "0d88ffcf506f160300bb89d9937b745725e6cd3a3bb86ce23f727c2e383317a1"
