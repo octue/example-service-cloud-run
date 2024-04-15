@@ -126,7 +126,7 @@ jobs:
       - name: Show deployed service URL
         run: echo "${{ steps.deploy-service.outputs.url }}"
 
-      - name: Create service topic and push subscription
+      - name: Create service revision push subscription
         uses: octue/create-push-subscription@0.4.0
         with:
           project_name: ${{ needs.info.outputs.gcp_project_name }}
