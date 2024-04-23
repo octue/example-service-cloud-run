@@ -24,4 +24,3 @@ jobs:
       gcp_resource_affix: octue
       gcp_service_name: example-service-cloud-run
       cloud_run_flags: "--ingress=all --allow-unauthenticated"
-      local_dockerfile: ./Dockerfile
