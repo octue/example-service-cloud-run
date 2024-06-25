@@ -3,3 +3,4 @@ services:
     name: example-service
     app_source_path: example_service_cloud_run
     app_configuration_path: app_configuration.json
+    event_store_table_id: octue_sdk_python_test_dataset.service-events
