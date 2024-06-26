@@ -22,5 +22,5 @@ jobs:
       gcp_project_number: 437801218871
       gcp_region: europe-west1
       gcp_resource_affix: octue
-      gcp_service_name: example-service-cloud-run
+      gcp_service_name: example-service
       cloud_run_flags: "--ingress=all --allow-unauthenticated"
